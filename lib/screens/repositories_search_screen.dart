@@ -8,7 +8,7 @@ class RepositoriesSearchScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(gitHubRepositorySearchTextStateProvider);
-    print(query);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       // TODO Appbar
@@ -17,7 +17,6 @@ class RepositoriesSearchScreen extends ConsumerWidget {
       ),
       body: const Column(
         children: [
-          //TODO Search bar
           CustomSearchBar(),
           //TODO Repositories list
           Center(
