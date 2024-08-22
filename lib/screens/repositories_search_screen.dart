@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yumemi_code_assignment/components/repositories_search_screen/custom_appbar.dart';
 import 'package:yumemi_code_assignment/components/repositories_search_screen/custom_search_bar.dart';
 
 class RepositoriesSearchScreen extends ConsumerWidget {
@@ -11,9 +12,12 @@ class RepositoriesSearchScreen extends ConsumerWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      // TODO Appbar
-      appBar: AppBar(
-        title: const Text('RepositoriesSearchScreen'),
+      appBar: CustomAppBar(
+        themeModeProvider: false,
+        context: context,
+        toggle: (val) {
+          // TODO use themeModeProvider
+        },
       ),
       body: const Column(
         children: [
