@@ -1,0 +1,92 @@
+import 'package:app_settings/app_settings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+class CustomAppBar extends AppBar {
+  CustomAppBar(
+      {required bool themeModeProvider,
+      required BuildContext context,
+      required Function toggle,
+      super.key})
+      : super(
+          centerTitle: true,
+          title: SvgPicture.asset(
+            'assets/icons/github-original-wordmark.svg',
+            colorFilter: themeModeProvider
+                ? const ColorFilter.mode(Colors.white, BlendMode.srcIn)
+                : const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+            height: 50,
+            width: 50,
+            semanticsLabel: "GitHub Logo",
+          ),
+          actions: [
+            MenuAnchor(
+              alignmentOffset: const Offset(-175, 0),
+              style: const MenuStyle(
+                elevation: WidgetStatePropertyAll(1),
+                padding:
+                    WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
+                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8)))),
+              ),
+              builder: (BuildContext context, MenuController controller,
+                  Widget? child) {
+                return IconButton(
+                  onPressed: () {
+                    if (controller.isOpen) {
+                      controller.close();
+                    } else {
+                      controller.open();
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.settings,
+                  ),
+                );
+              },
+              menuChildren: <Widget>[
+                Column(
+                  children: [
+                    MenuItemButton(
+                      style: const ButtonStyle(
+                        minimumSize: WidgetStatePropertyAll(Size(210, 50)),
+                      ),
+                      trailingIcon: Icon(
+                        Icons.translate_outlined,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                      child: Text(
+                        //TODO localization
+                        "App Language",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      onPressed: () {
+                        AppSettings.openAppSettings(
+                            type: AppSettingsType.settings);
+                      },
+                    ),
+                    const Divider(
+                      height: 0,
+                    ),
+                    MenuItemButton(
+                      style: const ButtonStyle(
+                        minimumSize: WidgetStatePropertyAll(Size(210, 50)),
+                      ),
+                      trailingIcon: Switch.adaptive(
+                          value: themeModeProvider,
+                          onChanged: (val) {
+                            toggle(val);
+                          }),
+                      child: Text(
+                        //TODO localization
+                        themeModeProvider ? "Dark Mode" : "Light Mode",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ],
+        );
+}
