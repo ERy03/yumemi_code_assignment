@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yumemi_code_assignment/components/data/github_language_colors_repository.dart';
-import 'package:yumemi_code_assignment/components/domain/github_repository_model.dart';
+import 'package:yumemi_code_assignment/data/github_language_colors_repository.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_model.dart';
 import 'package:yumemi_code_assignment/utils/number_formatter.dart';
 import 'package:yumemi_code_assignment/utils/string_to_color.dart';
 

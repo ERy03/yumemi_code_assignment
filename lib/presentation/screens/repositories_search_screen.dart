@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yumemi_code_assignment/components/data/github_repositories_repository.dart';
-import 'package:yumemi_code_assignment/components/repositories_search_screen/custom_appbar.dart';
-import 'package:yumemi_code_assignment/components/repositories_search_screen/custom_search_bar.dart';
-import 'package:yumemi_code_assignment/components/repositories_search_screen/find_prompt.dart';
-import 'package:yumemi_code_assignment/components/repositories_search_screen/no_github_repositories_found.dart';
-import 'package:yumemi_code_assignment/components/repositories_search_screen/repository_list_tile.dart';
-import 'package:yumemi_code_assignment/components/shared/bot_padding.dart';
-import 'package:yumemi_code_assignment/components/shared/error_messages.dart';
+import 'package:yumemi_code_assignment/data/github_repositories_repository.dart';
+import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/custom_appbar.dart';
+import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/custom_search_bar.dart';
+import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/find_prompt.dart';
+import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/no_github_repositories_found.dart';
+import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/repository_list_tile.dart';
+import 'package:yumemi_code_assignment/presentation/components/shared/bot_padding.dart';
+import 'package:yumemi_code_assignment/presentation/components/shared/error_messages.dart';
 
 class RepositoriesSearchScreen extends ConsumerWidget {
   const RepositoriesSearchScreen({super.key});

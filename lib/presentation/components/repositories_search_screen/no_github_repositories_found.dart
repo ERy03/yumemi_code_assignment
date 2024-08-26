@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yumemi_code_assignment/components/shared/bot_padding.dart';
+import 'package:yumemi_code_assignment/presentation/components/shared/bot_padding.dart';
 
 class NoGitHubRepositoriesFound extends StatelessWidget {
   const NoGitHubRepositoriesFound({super.key});
