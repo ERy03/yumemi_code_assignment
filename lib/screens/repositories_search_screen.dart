@@ -7,6 +7,7 @@ import 'package:yumemi_code_assignment/components/repositories_search_screen/fin
 import 'package:yumemi_code_assignment/components/repositories_search_screen/no_github_repositories_found.dart';
 import 'package:yumemi_code_assignment/components/repositories_search_screen/repository_list_tile.dart';
 import 'package:yumemi_code_assignment/components/shared/bot_padding.dart';
+import 'package:yumemi_code_assignment/components/shared/error_messages.dart';
 
 class RepositoriesSearchScreen extends ConsumerWidget {
   const RepositoriesSearchScreen({super.key});
@@ -17,6 +18,8 @@ class RepositoriesSearchScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(gitHubRepositorySearchTextStateProvider);
+    final gitHubRepositoryTotalCount =
+        ref.watch(gitHubRepositoryTotalCountProvider(query));
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -35,11 +38,24 @@ class RepositoriesSearchScreen extends ConsumerWidget {
           Expanded(
               child: query.isEmpty
                   ? const FindPrompt()
-                  : ref.watch(gitHubRepositoryTotalCountProvider(query)).when(
+                  : gitHubRepositoryTotalCount.when(
                       error: (e, _) {
                         return BotPadding(
-                          //TODO Error handling
-                          child: Center(child: Text(e.toString())),
+                          child: ErrorMessages(
+                            error: e,
+                            onPressed: gitHubRepositoryTotalCount.isLoading
+                                ? null
+                                : () {
+                                    ref.invalidate(searchRepositoriesProvider(
+                                        queryData: (page: 1, query: query)));
+                                    return ref.read(
+                                      searchRepositoriesProvider(queryData: (
+                                        page: 1,
+                                        query: query
+                                      )).future,
+                                    );
+                                  },
+                          ),
                         );
                       },
                       loading: () => const BotPadding(
@@ -76,9 +92,27 @@ class RepositoriesSearchScreen extends ConsumerWidget {
                                       bottom: false,
                                       child: Padding(
                                         padding: const EdgeInsets.all(16.0),
-                                        child:
-                                            //TODO Error handling
-                                            Center(child: Text(e.toString())),
+                                        child: ErrorMessages(
+                                          error: e,
+                                          onPressed:
+                                              gitHubRepositoryResponse.isLoading
+                                                  ? null
+                                                  : () {
+                                                      ref.invalidate(
+                                                          searchRepositoriesProvider(
+                                                              queryData: (
+                                                            page: page,
+                                                            query: query
+                                                          )));
+                                                      return ref.read(
+                                                        searchRepositoriesProvider(
+                                                            queryData: (
+                                                              page: page,
+                                                              query: query
+                                                            )).future,
+                                                      );
+                                                    },
+                                        ),
                                       ),
                                     );
                                   }, loading: () {
