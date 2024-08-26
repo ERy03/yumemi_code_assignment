@@ -50,6 +50,7 @@
 - [app_settings: ^5.1.1](https://pub.dev/packages/app_settings)
 - [cached_network_image: ^3.4.1](https://pub.dev/packages/cached_network_image)
 - [dio: ^5.5.0+1](https://pub.dev/packages/dio)
+- [easy_localization: ^3.0.7](https://pub.dev/packages/easy_localization)
 - [flutter_riverpod: ^2.5.1](https://pub.dev/packages/flutter_riverpod)
 - [flutter_svg ^2.0.10+1](https://pub.dev/packages/flutter_svg)
 - [freezed: ^2.5.7](https://pub.dev/packages/freezed)
@@ -64,6 +65,20 @@
 Freezed や Riverpod などのパッケージを使ってコード生成を行なっています。
 
 `dart run build_runner build -d`
+
+## 多言語化
+
+[easy_localization](https://pub.dev/packages/easy_localization) を使用しています。
+
+`assets/translations/`内の各言語 json ファイルを編集後は下記を実行してください。
+
+`dart run easy_localization:generate -S assets/translations -f keys -o locale_keys.g.dart`
+
+## App Settings (注意)
+
+このアプリはApp_Settingsパッケージを使用しているため、ユーザーが言語を変更する際は、アプリの設定画面に移ります。iosのローカル環境で言語変更を行った場合、デバイスとの接続が切れてしまいます。
+
+androidのローカル環境で言語変更を行った場合は、デバイスとの接続を一旦切っていただく必要があります。
 
 ## Credits
 
