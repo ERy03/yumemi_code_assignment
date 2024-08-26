@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 
 final gitHubRepositorySearchTextStateProvider = StateProvider<String>((ref) {
   return '';
@@ -38,7 +40,7 @@ class _CustomSearchBarState extends ConsumerState<CustomSearchBar> {
           padding: const WidgetStatePropertyAll<EdgeInsets>(
               EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
           leading: const Icon(Icons.search),
-          hintText: "Search Repository", //TODO localization
+          hintText: LocaleKeys.searchRepository.tr(),
           onChanged: (text) => ref
               .read(gitHubRepositorySearchTextStateProvider.notifier)
               .state = text,
