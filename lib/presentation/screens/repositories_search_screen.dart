@@ -8,6 +8,7 @@ import 'package:yumemi_code_assignment/presentation/components/repositories_sear
 import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/repository_list_tile.dart';
 import 'package:yumemi_code_assignment/presentation/components/shared/bot_padding.dart';
 import 'package:yumemi_code_assignment/presentation/components/shared/error_messages.dart';
+import 'package:yumemi_code_assignment/theme/theme_mode_provider.dart';
 
 class RepositoriesSearchScreen extends ConsumerWidget {
   const RepositoriesSearchScreen({super.key});
@@ -18,16 +19,17 @@ class RepositoriesSearchScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(gitHubRepositorySearchTextStateProvider);
+    final themeModeState = ref.watch(themeModeProvider);
     final gitHubRepositoryTotalCount =
         ref.watch(gitHubRepositoryTotalCountProvider(query));
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
-        themeModeProvider: false,
+        themeModeProvider: themeModeState,
         context: context,
         toggle: (val) {
-          // TODO use themeModeProvider
+          ref.read(themeModeProvider.notifier).update((state) => val);
         },
       ),
       body: Column(
