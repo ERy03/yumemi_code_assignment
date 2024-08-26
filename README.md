@@ -57,6 +57,7 @@
 - [intl ^0.19.0](https://pub.dev/packages/intl)
 - [json_annotation: ^4.9.0](https://pub.dev/packages/json_annotation)
 - [riverpod_annotation: ^2.3.5](https://pub.dev/packages/riverpod_annotation)
+- [shared_preferences: ^2.3.2](https://pub.dev/packages/shared_preferences)
 
 ## コード生成
 
