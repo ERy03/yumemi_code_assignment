@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 
 class FindPrompt extends StatelessWidget {
   const FindPrompt({super.key});
@@ -8,24 +10,22 @@ class FindPrompt extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Padding(
       padding: EdgeInsets.only(bottom: height * 0.13),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            //TODO localization
-            "Find your stuff.",
-            style: TextStyle(
+            LocaleKeys.find.tr(),
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
-            //TODO localization
-            "Search all of GitHub for Repositories.",
-            style: TextStyle(
+            LocaleKeys.searchGH.tr(),
+            style: const TextStyle(
               fontSize: 16,
             ),
           ),

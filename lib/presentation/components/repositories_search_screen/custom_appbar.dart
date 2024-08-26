@@ -1,6 +1,8 @@
 import 'package:app_settings/app_settings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 
 class CustomAppBar extends AppBar {
   CustomAppBar(
@@ -56,8 +58,7 @@ class CustomAppBar extends AppBar {
                         color: Theme.of(context).iconTheme.color,
                       ),
                       child: Text(
-                        //TODO localization
-                        "App Language",
+                        LocaleKeys.appLanguage.tr(),
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       onPressed: () {
@@ -78,8 +79,9 @@ class CustomAppBar extends AppBar {
                             toggle(val);
                           }),
                       child: Text(
-                        //TODO localization
-                        themeModeProvider ? "Dark Mode" : "Light Mode",
+                        themeModeProvider
+                            ? LocaleKeys.darkMode.tr()
+                            : LocaleKeys.lightMode.tr(),
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                     )
