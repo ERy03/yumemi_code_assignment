@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:yumemi_code_assignment/components/domain/github_repository_license.dart';
-import 'package:yumemi_code_assignment/components/domain/github_repository_owner.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_license.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_owner.dart';
 
 part 'github_repository_model.freezed.dart';
 part 'github_repository_model.g.dart';

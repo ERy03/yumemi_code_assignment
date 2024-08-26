@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yumemi_code_assignment/screens/repositories_search_screen.dart';
+import 'package:yumemi_code_assignment/presentation/screens/repositories_search_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yumemi_code_assignment/components/domain/github_repository_response.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_response.dart';
 
 part 'github_repositories_repository.g.dart';
 

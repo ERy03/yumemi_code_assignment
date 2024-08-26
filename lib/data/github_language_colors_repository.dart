@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yumemi_code_assignment/components/domain/github_language_colors.dart';
+import 'package:yumemi_code_assignment/domain/github_language_colors.dart';
 
 part 'github_language_colors_repository.g.dart';
 
