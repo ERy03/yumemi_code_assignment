@@ -1,4 +1,5 @@
 # 株式会社ゆめみ Flutter エンジニアコードチェック課題
+
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
 本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に Flutter エンジニアを希望する方に出す課題用のプロジェクトです。 本課題が与えられた方は、以下を詳しく読んだ上で課題に取り組んでください。
@@ -58,6 +59,7 @@
 - [freezed_annotation: ^2.4.4](https://pub.dev/packages/freezed_annotation)
 - [intl ^0.19.0](https://pub.dev/packages/intl)
 - [json_annotation: ^4.9.0](https://pub.dev/packages/json_annotation)
+- [mocktail: ^1.0.4](https://pub.dev/packages/mocktail)
 - [riverpod_annotation: ^2.3.5](https://pub.dev/packages/riverpod_annotation)
 - [shared_preferences: ^2.3.2](https://pub.dev/packages/shared_preferences)
 - [very_good_analysis: ^6.0.0](https://pub.dev/packages/very_good_analysis)
@@ -78,13 +80,13 @@ Freezed や Riverpod などのパッケージを使ってコード生成を行�
 
 ## App Settings (注意)
 
-このアプリはApp_Settingsパッケージを使用しているため、ユーザーが言語を変更する際は、アプリの設定画面に移ります。iosのローカル環境で言語変更を行った場合、デバイスとの接続が切れてしまいます。
+このアプリは App_Settings パッケージを使用しているため、ユーザーが言語を変更する際は、アプリの設定画面に移ります。ios のローカル環境で言語変更を行った場合、デバイスとの接続が切れてしまいます。
 
-androidのローカル環境で言語変更を行った場合は、デバイスとの接続を一旦切っていただく必要があります。
+android のローカル環境で言語変更を行った場合は、デバイスとの接続を一旦切っていただく必要があります。
 
 ## Lint Rules
 
-[Very Good Ventures](https://verygood.ventures/)のvery_good_analysisを使用してLint Ruleを設定しています。
+[Very Good Ventures](https://verygood.ventures/)の very_good_analysis を使用して Lint Rule を設定しています。
 
 ## Credits
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const defaultColor = Color(0xFF808080);
+
 // APIで取得したプログラミング言語の色を16進数カラーに変更する
 Color stringToColor(String stringColor) {
   // '#'を消す
@@ -11,6 +13,6 @@ Color stringToColor(String stringColor) {
     final color = Color(int.parse(stringColorWithFF, radix: 16));
     return color;
   } catch (_) {
-    return const Color(0xFF808080);
+    return defaultColor;
   }
 }
