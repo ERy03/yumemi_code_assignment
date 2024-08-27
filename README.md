@@ -1,6 +1,7 @@
 # 株式会社ゆめみ Flutter エンジニアコードチェック課題
 
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
+<a href="https://github.com/ERy03/yumemi_code_assignment/actions"><img src="https://github.com/ERy03/yumemi_code_assignment/workflows/Code Check/badge.svg" alt="Status"></a>
 
 本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に Flutter エンジニアを希望する方に出す課題用のプロジェクトです。 本課題が与えられた方は、以下を詳しく読んだ上で課題に取り組んでください。
 

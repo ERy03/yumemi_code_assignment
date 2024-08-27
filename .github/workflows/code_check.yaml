@@ -1,0 +1,15 @@
+name: Code Check
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    name: Check source code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: Install packages
+        run: flutter pub get
+      - name: Linter
+        run: dart analyze
+      - name: Test
+        run: flutter test
