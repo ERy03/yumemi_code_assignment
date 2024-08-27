@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yumemi_code_assignment/domain/github_repository_model.dart';
 
 part 'github_repository_response.freezed.dart';

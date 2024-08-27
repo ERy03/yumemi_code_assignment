@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 
 class ErrorMessages extends StatelessWidget {
-  const ErrorMessages(
-      {super.key, required this.error, required this.onPressed});
+  const ErrorMessages({
+    required this.error,
+    required this.onPressed,
+    super.key,
+  });
 
   final Object error;
   final VoidCallback? onPressed;
@@ -14,20 +17,26 @@ class ErrorMessages extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDioException = error is DioException;
     return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          isDioException
-              ? handleDioError(error as DioException)
-              : LocaleKeys.somethingWentWrong.tr(),
-          style: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: 0.1),
-        ),
-        IconButton(
-            onPressed: onPressed, icon: const Icon(Icons.refresh_outlined))
-      ],
-    ));
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            isDioException
+                ? handleDioError(error as DioException)
+                : LocaleKeys.somethingWentWrong.tr(),
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.1,
+            ),
+          ),
+          IconButton(
+            onPressed: onPressed,
+            icon: const Icon(Icons.refresh_outlined),
+          ),
+        ],
+      ),
+    );
   }
 }
 

@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'github_repository_owner.freezed.dart';
 part 'github_repository_owner.g.dart';
@@ -10,7 +10,8 @@ class RepositoryOwner with _$RepositoryOwner {
     required String login,
     @JsonKey(name: 'avatar_url') required String avatarUrl,
     @JsonKey(name: 'html_url') required String htmlUrl,
-  })= _RepositoryOwner;
+  }) = _RepositoryOwner;
 
-  factory RepositoryOwner.fromJson(Map<String, Object?> json) => _$RepositoryOwnerFromJson(json);
+  factory RepositoryOwner.fromJson(Map<String, Object?> json) =>
+      _$RepositoryOwnerFromJson(json);
 }

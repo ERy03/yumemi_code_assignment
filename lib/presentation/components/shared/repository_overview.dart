@@ -8,8 +8,8 @@ import 'package:yumemi_code_assignment/utils/string_to_color.dart';
 
 class RepositoryOverview extends ConsumerWidget {
   const RepositoryOverview({
-    super.key,
     required this.gitHubRepositoryModel,
+    super.key,
   });
 
   final GitHubRepositoryModel gitHubRepositoryModel;
@@ -31,9 +31,13 @@ class RepositoryOverview extends ConsumerWidget {
       child: SizedBox(
         child: Container(
           decoration: BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(
-                      color: Theme.of(context).dividerColor, width: 0))),
+            border: Border(
+              bottom: BorderSide(
+                color: Theme.of(context).dividerColor,
+                width: 0,
+              ),
+            ),
+          ),
           margin: const EdgeInsets.only(left: 16),
           padding: const EdgeInsets.only(top: 16, bottom: 16, right: 16),
           child: Column(
@@ -50,14 +54,18 @@ class RepositoryOverview extends ConsumerWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            image: imageProvider, fit: BoxFit.cover),
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     placeholder: (context, url) => Container(
                       height: 32,
                       width: 32,
                       decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.grey),
+                        shape: BoxShape.circle,
+                        color: Colors.grey,
+                      ),
                     ),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
@@ -66,10 +74,11 @@ class RepositoryOverview extends ConsumerWidget {
                     width: 10,
                   ),
                   Flexible(
-                      child: Text(
-                    gitHubRepositoryModel.owner.login,
-                    overflow: TextOverflow.ellipsis,
-                  ))
+                    child: Text(
+                      gitHubRepositoryModel.owner.login,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
 
@@ -123,21 +132,28 @@ class RepositoryOverview extends ConsumerWidget {
                       height: 18,
                       width: 18,
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: stringToColor(colorList.when(
-                              // gitHubRepositoryModelのプログラミング言語 == colorList内のプログラミング言語のインデックスを探す
-                              data: (colors) {
-                                final index = colors.indexWhere((element) =>
+                        shape: BoxShape.circle,
+                        color: stringToColor(
+                          colorList.when(
+                            // gitHubRepositoryModelのプログラミング言語が
+                            // colorList内のプログラミング言語と一致するインデックスを探す
+                            data: (colors) {
+                              final index = colors.indexWhere(
+                                (element) =>
                                     element.name ==
-                                    gitHubRepositoryModel.language);
-                                if (index == -1) {
-                                  return "#808080";
-                                } else {
-                                  return colors[index].color ?? "#808080";
-                                }
-                              },
-                              error: (_, __) => "#808080",
-                              loading: () => "#808080"))),
+                                    gitHubRepositoryModel.language,
+                              );
+                              if (index == -1) {
+                                return '#808080';
+                              } else {
+                                return colors[index].color ?? '#808080';
+                              }
+                            },
+                            error: (_, __) => '#808080',
+                            loading: () => '#808080',
+                          ),
+                        ),
+                      ),
                     ),
                   ),
 

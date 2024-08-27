@@ -10,11 +10,15 @@ class NoGitHubRepositoriesFound extends StatelessWidget {
   Widget build(BuildContext context) {
     return BotPadding(
       child: Center(
-          child: Text(
-        LocaleKeys.noRepositories.tr(),
-        style: const TextStyle(
-            fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: 0.1),
-      )),
+        child: Text(
+          LocaleKeys.noRepositories.tr(),
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.1,
+          ),
+        ),
+      ),
     );
   }
 }

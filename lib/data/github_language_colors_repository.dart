@@ -18,13 +18,15 @@ class GitHubLanguageColorsRepository {
       path: 'ozh/github-colors/master/colors.json',
     ).toString();
 
-    final response = await _dio.get(url);
-    final List<GitHubLanguageColors> languageColors = [];
-    final Map<String, dynamic> data = jsonDecode(response.data);
+    final response = await _dio.get<dynamic>(url);
+    final languageColors = <GitHubLanguageColors>[];
+    final data = jsonDecode(response.data as String) as Map<String, dynamic>;
 
     data.forEach((key, value) {
-      languageColors
-          .add(GitHubLanguageColors(name: key, color: value['color']));
+      languageColors.add(
+        // ignore: avoid_dynamic_calls
+        GitHubLanguageColors(name: key, color: value['color'] as String?),
+      );
     });
     return languageColors;
   }
@@ -33,7 +35,8 @@ class GitHubLanguageColorsRepository {
 // keepAliveはtrueにしておくことでdisposeされずにメモリに保管する
 @Riverpod(keepAlive: true)
 GitHubLanguageColorsRepository gitHubLanguageColorsRepository(
-    GitHubLanguageColorsRepositoryRef ref) {
+  GitHubLanguageColorsRepositoryRef ref,
+) {
   return GitHubLanguageColorsRepository(Dio());
 }
 

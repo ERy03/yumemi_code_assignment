@@ -5,12 +5,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 
 class CustomAppBar extends AppBar {
-  CustomAppBar(
-      {required bool themeModeProvider,
-      required BuildContext context,
-      required Function toggle,
-      super.key})
-      : super(
+  CustomAppBar({
+    required bool themeModeProvider,
+    required BuildContext context,
+    // ignore: avoid_positional_boolean_parameters
+    required void Function(bool) toggle,
+    super.key,
+  }) : super(
           centerTitle: true,
           title: SvgPicture.asset(
             'assets/icons/github-original-wordmark.svg',
@@ -19,20 +20,25 @@ class CustomAppBar extends AppBar {
                 : const ColorFilter.mode(Colors.black, BlendMode.srcIn),
             height: 50,
             width: 50,
-            semanticsLabel: "GitHub Logo",
+            semanticsLabel: 'GitHub Logo',
           ),
           actions: [
             MenuAnchor(
               alignmentOffset: const Offset(-175, 0),
               style: const MenuStyle(
                 elevation: WidgetStatePropertyAll(1),
-                padding:
-                    WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 0)),
-                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)))),
+                padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                  ),
+                ),
               ),
-              builder: (BuildContext context, MenuController controller,
-                  Widget? child) {
+              builder: (
+                BuildContext context,
+                MenuController controller,
+                Widget? child,
+              ) {
                 return IconButton(
                   onPressed: () {
                     if (controller.isOpen) {
@@ -57,14 +63,11 @@ class CustomAppBar extends AppBar {
                         Icons.translate_outlined,
                         color: Theme.of(context).iconTheme.color,
                       ),
+                      onPressed: AppSettings.openAppSettings,
                       child: Text(
                         LocaleKeys.appLanguage.tr(),
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
-                      onPressed: () {
-                        AppSettings.openAppSettings(
-                            type: AppSettingsType.settings);
-                      },
                     ),
                     const Divider(
                       height: 0,
@@ -74,17 +77,18 @@ class CustomAppBar extends AppBar {
                         minimumSize: WidgetStatePropertyAll(Size(210, 50)),
                       ),
                       trailingIcon: Switch.adaptive(
-                          value: themeModeProvider,
-                          onChanged: (val) {
-                            toggle(val);
-                          }),
+                        value: themeModeProvider,
+                        onChanged: (val) {
+                          toggle(val);
+                        },
+                      ),
                       child: Text(
                         themeModeProvider
                             ? LocaleKeys.darkMode.tr()
                             : LocaleKeys.lightMode.tr(),
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],

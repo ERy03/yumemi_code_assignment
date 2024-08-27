@@ -22,20 +22,20 @@ GitHubRepositoryModel _$GitHubRepositoryModelFromJson(
 /// @nodoc
 mixin _$GitHubRepositoryModel {
   String get name => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'html_url')
   String get htmlUrl => throw _privateConstructorUsedError;
-  String? get homepage => throw _privateConstructorUsedError;
   @JsonKey(name: 'stargazers_count')
   int get stargazersCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'watchers_count')
   int get watchersCount => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
   @JsonKey(name: 'forks_count')
   int get forksCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'open_issues_count')
   int get openIssuesCount => throw _privateConstructorUsedError;
   RepositoryOwner get owner => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get homepage => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
   RepositoryLicense? get license => throw _privateConstructorUsedError;
 
   /// Serializes this GitHubRepositoryModel to a JSON map.
@@ -56,15 +56,15 @@ abstract class $GitHubRepositoryModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      String? description,
       @JsonKey(name: 'html_url') String htmlUrl,
-      String? homepage,
       @JsonKey(name: 'stargazers_count') int stargazersCount,
       @JsonKey(name: 'watchers_count') int watchersCount,
-      String? language,
       @JsonKey(name: 'forks_count') int forksCount,
       @JsonKey(name: 'open_issues_count') int openIssuesCount,
       RepositoryOwner owner,
+      String? description,
+      String? homepage,
+      String? language,
       RepositoryLicense? license});
 
   $RepositoryOwnerCopyWith<$Res> get owner;
@@ -88,15 +88,15 @@ class _$GitHubRepositoryModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? name = null,
-    Object? description = freezed,
     Object? htmlUrl = null,
-    Object? homepage = freezed,
     Object? stargazersCount = null,
     Object? watchersCount = null,
-    Object? language = freezed,
     Object? forksCount = null,
     Object? openIssuesCount = null,
     Object? owner = null,
+    Object? description = freezed,
+    Object? homepage = freezed,
+    Object? language = freezed,
     Object? license = freezed,
   }) {
     return _then(_value.copyWith(
@@ -104,18 +104,10 @@ class _$GitHubRepositoryModelCopyWithImpl<$Res,
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       htmlUrl: null == htmlUrl
           ? _value.htmlUrl
           : htmlUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      homepage: freezed == homepage
-          ? _value.homepage
-          : homepage // ignore: cast_nullable_to_non_nullable
-              as String?,
       stargazersCount: null == stargazersCount
           ? _value.stargazersCount
           : stargazersCount // ignore: cast_nullable_to_non_nullable
@@ -124,10 +116,6 @@ class _$GitHubRepositoryModelCopyWithImpl<$Res,
           ? _value.watchersCount
           : watchersCount // ignore: cast_nullable_to_non_nullable
               as int,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
       forksCount: null == forksCount
           ? _value.forksCount
           : forksCount // ignore: cast_nullable_to_non_nullable
@@ -140,6 +128,18 @@ class _$GitHubRepositoryModelCopyWithImpl<$Res,
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as RepositoryOwner,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      homepage: freezed == homepage
+          ? _value.homepage
+          : homepage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
       license: freezed == license
           ? _value.license
           : license // ignore: cast_nullable_to_non_nullable
@@ -183,15 +183,15 @@ abstract class _$$GitHubRepositoryModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      String? description,
       @JsonKey(name: 'html_url') String htmlUrl,
-      String? homepage,
       @JsonKey(name: 'stargazers_count') int stargazersCount,
       @JsonKey(name: 'watchers_count') int watchersCount,
-      String? language,
       @JsonKey(name: 'forks_count') int forksCount,
       @JsonKey(name: 'open_issues_count') int openIssuesCount,
       RepositoryOwner owner,
+      String? description,
+      String? homepage,
+      String? language,
       RepositoryLicense? license});
 
   @override
@@ -215,15 +215,15 @@ class __$$GitHubRepositoryModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? description = freezed,
     Object? htmlUrl = null,
-    Object? homepage = freezed,
     Object? stargazersCount = null,
     Object? watchersCount = null,
-    Object? language = freezed,
     Object? forksCount = null,
     Object? openIssuesCount = null,
     Object? owner = null,
+    Object? description = freezed,
+    Object? homepage = freezed,
+    Object? language = freezed,
     Object? license = freezed,
   }) {
     return _then(_$GitHubRepositoryModelImpl(
@@ -231,18 +231,10 @@ class __$$GitHubRepositoryModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       htmlUrl: null == htmlUrl
           ? _value.htmlUrl
           : htmlUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      homepage: freezed == homepage
-          ? _value.homepage
-          : homepage // ignore: cast_nullable_to_non_nullable
-              as String?,
       stargazersCount: null == stargazersCount
           ? _value.stargazersCount
           : stargazersCount // ignore: cast_nullable_to_non_nullable
@@ -251,10 +243,6 @@ class __$$GitHubRepositoryModelImplCopyWithImpl<$Res>
           ? _value.watchersCount
           : watchersCount // ignore: cast_nullable_to_non_nullable
               as int,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
       forksCount: null == forksCount
           ? _value.forksCount
           : forksCount // ignore: cast_nullable_to_non_nullable
@@ -267,6 +255,18 @@ class __$$GitHubRepositoryModelImplCopyWithImpl<$Res>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as RepositoryOwner,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      homepage: freezed == homepage
+          ? _value.homepage
+          : homepage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
       license: freezed == license
           ? _value.license
           : license // ignore: cast_nullable_to_non_nullable
@@ -282,15 +282,15 @@ class _$GitHubRepositoryModelImpl
     implements _GitHubRepositoryModel {
   const _$GitHubRepositoryModelImpl(
       {required this.name,
-      this.description,
       @JsonKey(name: 'html_url') required this.htmlUrl,
-      this.homepage,
       @JsonKey(name: 'stargazers_count') required this.stargazersCount,
       @JsonKey(name: 'watchers_count') required this.watchersCount,
-      this.language,
       @JsonKey(name: 'forks_count') required this.forksCount,
       @JsonKey(name: 'open_issues_count') required this.openIssuesCount,
       required this.owner,
+      this.description,
+      this.homepage,
+      this.language,
       this.license});
 
   factory _$GitHubRepositoryModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -299,20 +299,14 @@ class _$GitHubRepositoryModelImpl
   @override
   final String name;
   @override
-  final String? description;
-  @override
   @JsonKey(name: 'html_url')
   final String htmlUrl;
-  @override
-  final String? homepage;
   @override
   @JsonKey(name: 'stargazers_count')
   final int stargazersCount;
   @override
   @JsonKey(name: 'watchers_count')
   final int watchersCount;
-  @override
-  final String? language;
   @override
   @JsonKey(name: 'forks_count')
   final int forksCount;
@@ -322,11 +316,17 @@ class _$GitHubRepositoryModelImpl
   @override
   final RepositoryOwner owner;
   @override
+  final String? description;
+  @override
+  final String? homepage;
+  @override
+  final String? language;
+  @override
   final RepositoryLicense? license;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GitHubRepositoryModel(name: $name, description: $description, htmlUrl: $htmlUrl, homepage: $homepage, stargazersCount: $stargazersCount, watchersCount: $watchersCount, language: $language, forksCount: $forksCount, openIssuesCount: $openIssuesCount, owner: $owner, license: $license)';
+    return 'GitHubRepositoryModel(name: $name, htmlUrl: $htmlUrl, stargazersCount: $stargazersCount, watchersCount: $watchersCount, forksCount: $forksCount, openIssuesCount: $openIssuesCount, owner: $owner, description: $description, homepage: $homepage, language: $language, license: $license)';
   }
 
   @override
@@ -335,15 +335,15 @@ class _$GitHubRepositoryModelImpl
     properties
       ..add(DiagnosticsProperty('type', 'GitHubRepositoryModel'))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('htmlUrl', htmlUrl))
-      ..add(DiagnosticsProperty('homepage', homepage))
       ..add(DiagnosticsProperty('stargazersCount', stargazersCount))
       ..add(DiagnosticsProperty('watchersCount', watchersCount))
-      ..add(DiagnosticsProperty('language', language))
       ..add(DiagnosticsProperty('forksCount', forksCount))
       ..add(DiagnosticsProperty('openIssuesCount', openIssuesCount))
       ..add(DiagnosticsProperty('owner', owner))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('homepage', homepage))
+      ..add(DiagnosticsProperty('language', language))
       ..add(DiagnosticsProperty('license', license));
   }
 
@@ -353,22 +353,22 @@ class _$GitHubRepositoryModelImpl
         (other.runtimeType == runtimeType &&
             other is _$GitHubRepositoryModelImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.htmlUrl, htmlUrl) || other.htmlUrl == htmlUrl) &&
-            (identical(other.homepage, homepage) ||
-                other.homepage == homepage) &&
             (identical(other.stargazersCount, stargazersCount) ||
                 other.stargazersCount == stargazersCount) &&
             (identical(other.watchersCount, watchersCount) ||
                 other.watchersCount == watchersCount) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
             (identical(other.forksCount, forksCount) ||
                 other.forksCount == forksCount) &&
             (identical(other.openIssuesCount, openIssuesCount) ||
                 other.openIssuesCount == openIssuesCount) &&
             (identical(other.owner, owner) || other.owner == owner) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.homepage, homepage) ||
+                other.homepage == homepage) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
             (identical(other.license, license) || other.license == license));
   }
 
@@ -377,15 +377,15 @@ class _$GitHubRepositoryModelImpl
   int get hashCode => Object.hash(
       runtimeType,
       name,
-      description,
       htmlUrl,
-      homepage,
       stargazersCount,
       watchersCount,
-      language,
       forksCount,
       openIssuesCount,
       owner,
+      description,
+      homepage,
+      language,
       license);
 
   /// Create a copy of GitHubRepositoryModel
@@ -408,15 +408,15 @@ class _$GitHubRepositoryModelImpl
 abstract class _GitHubRepositoryModel implements GitHubRepositoryModel {
   const factory _GitHubRepositoryModel(
       {required final String name,
-      final String? description,
       @JsonKey(name: 'html_url') required final String htmlUrl,
-      final String? homepage,
       @JsonKey(name: 'stargazers_count') required final int stargazersCount,
       @JsonKey(name: 'watchers_count') required final int watchersCount,
-      final String? language,
       @JsonKey(name: 'forks_count') required final int forksCount,
       @JsonKey(name: 'open_issues_count') required final int openIssuesCount,
       required final RepositoryOwner owner,
+      final String? description,
+      final String? homepage,
+      final String? language,
       final RepositoryLicense? license}) = _$GitHubRepositoryModelImpl;
 
   factory _GitHubRepositoryModel.fromJson(Map<String, dynamic> json) =
@@ -425,20 +425,14 @@ abstract class _GitHubRepositoryModel implements GitHubRepositoryModel {
   @override
   String get name;
   @override
-  String? get description;
-  @override
   @JsonKey(name: 'html_url')
   String get htmlUrl;
-  @override
-  String? get homepage;
   @override
   @JsonKey(name: 'stargazers_count')
   int get stargazersCount;
   @override
   @JsonKey(name: 'watchers_count')
   int get watchersCount;
-  @override
-  String? get language;
   @override
   @JsonKey(name: 'forks_count')
   int get forksCount;
@@ -447,6 +441,12 @@ abstract class _GitHubRepositoryModel implements GitHubRepositoryModel {
   int get openIssuesCount;
   @override
   RepositoryOwner get owner;
+  @override
+  String? get description;
+  @override
+  String? get homepage;
+  @override
+  String? get language;
   @override
   RepositoryLicense? get license;
 

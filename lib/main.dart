@@ -9,18 +9,23 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
-  runApp(EasyLocalization(
-    supportedLocales: const [
-      Locale('en'),
-      Locale('ja'),
-    ],
-    path: 'assets/translations',
-    fallbackLocale: const Locale('en'),
-    child: ProviderScope(overrides: [
-      // ここでUnimplementedErrorを実際のSharedPreferencesのインスタンスと上書きする
-      sharedPreferencesProvider.overrideWithValue(prefs),
-    ], child: const MyApp()),
-  ));
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ja'),
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: ProviderScope(
+        overrides: [
+          // ここでUnimplementedErrorを実際のSharedPreferencesのインスタンスと上書きする
+          sharedPreferencesProvider.overrideWithValue(prefs),
+        ],
+        child: const MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {

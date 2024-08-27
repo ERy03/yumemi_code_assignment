@@ -22,27 +22,32 @@ class GitHubRepositoriesRepository {
       host: 'api.github.com',
       path: 'search/repositories',
       queryParameters: {
-        'page': "${queryData.page}",
+        'page': '${queryData.page}',
         'q': queryData.query,
-        'per_page': "20",
+        'per_page': '20',
       },
     ).toString();
-    final option = Options(headers: {"accept": "application/vnd.github+json"});
+    final option = Options(headers: {'accept': 'application/vnd.github+json'});
     final response =
-        await _dio.get(url, cancelToken: cancelToken, options: option);
-    return GitHubRepositoryResponse.fromJson(response.data);
+        await _dio.get<dynamic>(url, cancelToken: cancelToken, options: option);
+    return GitHubRepositoryResponse.fromJson(
+      response.data as Map<String, dynamic>,
+    );
   }
 }
 
 @riverpod
 GitHubRepositoriesRepository gitHubRepositoriesRepository(
-    GitHubRepositoriesRepositoryRef ref) {
+  GitHubRepositoriesRepositoryRef ref,
+) {
   return GitHubRepositoriesRepository(Dio());
 }
 
 @riverpod
 AsyncValue<int> gitHubRepositoryTotalCount(
-    GitHubRepositoryTotalCountRef ref, String query) {
+  GitHubRepositoryTotalCountRef ref,
+  String query,
+) {
   return ref
       .watch(searchRepositoriesProvider(queryData: (page: 1, query: query)))
       .whenData((value) => value.totalCount);
@@ -58,13 +63,11 @@ Future<GitHubRepositoryResponse> searchRepositories(
   final cancelToken = CancelToken();
 
   // このproviderが破棄される時にHttpリクエストをCancelする
-  ref.onDispose(() {
-    cancelToken.cancel();
-  });
+  ref.onDispose(cancelToken.cancel);
 
   // debouncing
   // ユーザーがqueryをタイプするとすぐAPIが呼び出されなくするためのdebouncing
-  await Future.delayed(const Duration(milliseconds: 500));
+  await Future<void>.delayed(const Duration(milliseconds: 500));
 
   // 下記のExceptionはRiverpodでキャッチされる
   if (cancelToken.isCancelled) throw Exception('Cancelled');
