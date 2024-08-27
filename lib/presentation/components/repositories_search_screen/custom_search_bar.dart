@@ -27,7 +27,7 @@ class _CustomSearchBarState extends ConsumerState<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
       child: SafeArea(
         top: false,
         bottom: false,
@@ -38,7 +38,8 @@ class _CustomSearchBarState extends ConsumerState<CustomSearchBar> {
           shadowColor: WidgetStateProperty.all(Colors.transparent),
           controller: _searchController,
           padding: const WidgetStatePropertyAll<EdgeInsets>(
-              EdgeInsets.symmetric(horizontal: 16, vertical: 8)),
+            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          ),
           leading: const Icon(Icons.search),
           hintText: LocaleKeys.searchRepository.tr(),
           onChanged: (text) => ref

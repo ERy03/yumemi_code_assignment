@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const find = 'find';
   static const searchGH = 'searchGH';
   static const searchRepository = 'searchRepository';
@@ -13,5 +13,4 @@ abstract class  LocaleKeys {
   static const serviceUnavailable = 'serviceUnavailable';
   static const networkError = 'networkError';
   static const notFound = 'notFound';
-
 }

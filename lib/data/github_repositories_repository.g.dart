@@ -177,7 +177,7 @@ class _GitHubRepositoryTotalCountProviderElement
 }
 
 String _$searchRepositoriesHash() =>
-    r'6c1df68de90732861a0b95ce4a5440230fdd49eb';
+    r'7ecaa2227bf439e4d346b6165a039a16b4022786';
 
 /// See also [searchRepositories].
 @ProviderFor(searchRepositories)

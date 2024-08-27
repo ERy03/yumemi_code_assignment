@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BotPadding extends StatelessWidget {
-  const BotPadding({super.key, required this.child});
+  const BotPadding({required this.child, super.key});
   final Widget child;
 
   @override
