@@ -81,7 +81,7 @@ void main() {
           .thenThrow(dioException(503));
 
       expect(
-        () async => repository.getRepositoryReadme(owner: owner, repo: repo),
+        () => repository.getRepositoryReadme(owner: owner, repo: repo),
         throwsA(
           isA<DioException>()
               .having((e) => e.response?.statusCode, 'statusCode', 503),
@@ -100,7 +100,7 @@ void main() {
       );
 
       expect(
-        () async => repository.getRepositoryReadme(owner: owner, repo: repo),
+        () => repository.getRepositoryReadme(owner: owner, repo: repo),
         throwsA(
           isA<DioException>().having(
             (e) => e.type,
