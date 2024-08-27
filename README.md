@@ -55,6 +55,7 @@
 - [dio: ^5.5.0+1](https://pub.dev/packages/dio)
 - [easy_localization: ^3.0.7](https://pub.dev/packages/easy_localization)
 - [flutter_markdown: ^0.7.3+1](https://pub.dev/packages/flutter_markdown)
+- [flutter_native_splash: 2.4.1](https://pub.dev/packages/flutter_native_splash)
 - [flutter_riverpod: ^2.5.1](https://pub.dev/packages/flutter_riverpod)
 - [flutter_svg ^2.0.10+1](https://pub.dev/packages/flutter_svg)
 - [freezed: ^2.5.7](https://pub.dev/packages/freezed)
