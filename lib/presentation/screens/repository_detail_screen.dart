@@ -4,6 +4,7 @@ import 'package:yumemi_code_assignment/domain/github_repository_model.dart';
 import 'package:yumemi_code_assignment/enums/enums.dart';
 import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
 import 'package:yumemi_code_assignment/presentation/components/repository_detail_screen/app_bar_popup_menu_button.dart';
+import 'package:yumemi_code_assignment/presentation/components/repository_detail_screen/markdown_content.dart';
 import 'package:yumemi_code_assignment/presentation/components/repository_detail_screen/repository_detail_tile.dart';
 import 'package:yumemi_code_assignment/presentation/components/shared/repository_overview.dart';
 
@@ -88,6 +89,11 @@ class RepositoryDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            // RepositoryのReadmeを表示
+            MarkdownContent(
+              repo: gitHubRepositoryModel.name,
+              owner: gitHubRepositoryModel.owner.login,
             ),
           ],
         ),

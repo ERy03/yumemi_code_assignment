@@ -54,12 +54,15 @@
 - [cached_network_image: ^3.4.1](https://pub.dev/packages/cached_network_image)
 - [dio: ^5.5.0+1](https://pub.dev/packages/dio)
 - [easy_localization: ^3.0.7](https://pub.dev/packages/easy_localization)
+- [flutter_markdown: ^0.7.3+1](https://pub.dev/packages/flutter_markdown)
 - [flutter_riverpod: ^2.5.1](https://pub.dev/packages/flutter_riverpod)
 - [flutter_svg ^2.0.10+1](https://pub.dev/packages/flutter_svg)
 - [freezed: ^2.5.7](https://pub.dev/packages/freezed)
 - [freezed_annotation: ^2.4.4](https://pub.dev/packages/freezed_annotation)
 - [intl ^0.19.0](https://pub.dev/packages/intl)
+- [jovial_svg: ^1.1.22](https://pub.dev/packages/jovial_svg)
 - [json_annotation: ^4.9.0](https://pub.dev/packages/json_annotation)
+- [markdown: ^7.2.2](https://pub.dev/packages/markdown)
 - [mocktail: ^1.0.4](https://pub.dev/packages/mocktail)
 - [riverpod_annotation: ^2.3.5](https://pub.dev/packages/riverpod_annotation)
 - [share_plus: ^10.0.2](https://pub.dev/packages/share_plus)
@@ -86,6 +89,24 @@ Freezed や Riverpod などのパッケージを使ってコード生成を行�
 このアプリは App_Settings パッケージを使用しているため、ユーザーが言語を変更する際は、アプリの設定画面に移ります。ios のローカル環境で言語変更を行った場合、デバイスとの接続が切れてしまいます。
 
 android のローカル環境で言語変更を行った場合は、デバイスとの接続を一旦切っていただく必要があります。
+
+## Issues
+
+Flutter markdownでSVGが表示できない件
+https://github.com/flutter/flutter/issues/87857
+
+Flutter SVGに`<style>`タグがある場合SVGが表示されない件
+https://github.com/dnfield/flutter_svg/issues/105
+
+これらの理由から、RepositoryのReadmeを表示するときはJovial SVGを使用することにいたしました。完璧ではないですが、Flutter_svgよりはBetterな結果になります。
+
+flutter_svg:
+
+![example with flutter svg](https://raw.githubusercontent.com/ERy03/GitHub-Repository-Finder/develop/assets/readme/flutter_svg.png)
+
+jovial_svg:
+
+![example with jovial svg](https://raw.githubusercontent.com/ERy03/GitHub-Repository-Finder/develop/assets/readme/jovial_svg.png)
 
 ## Lint Rules
 
