@@ -3,6 +3,8 @@
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 <a href="https://github.com/ERy03/yumemi_code_assignment/actions"><img src="https://github.com/ERy03/yumemi_code_assignment/workflows/Code Check/badge.svg" alt="Status"></a>
 
+![github-repository-finder-recording-ezgif com-optimize](https://github.com/user-attachments/assets/538a94c7-9daf-4058-a132-bacb4f38794f)
+
 本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に Flutter エンジニアを希望する方に出す課題用のプロジェクトです。 本課題が与えられた方は、以下を詳しく読んだ上で課題に取り組んでください。
 
 ## 概要
@@ -92,15 +94,20 @@ Freezed や Riverpod などのパッケージを使ってコード生成を行�
 
 android のローカル環境で言語変更を行った場合は、デバイスとの接続を一旦切っていただく必要があります。
 
+## CI/CD
+
+GitHub Actions を使用。Build はしておらず test や analyze のみ行う。
+ビルドなどが必要な場合は[こちらが参考になるかも](https://github.com/subosito/flutter-action)
+
 ## Issues
 
-Flutter markdownでSVGが表示できない件
+Flutter markdown で SVG が表示できない件
 https://github.com/flutter/flutter/issues/87857
 
-Flutter SVGに`<style>`タグがある場合SVGが表示されない件
+Flutter SVG に`<style>`タグがある場合 SVG が表示されない件
 https://github.com/dnfield/flutter_svg/issues/105
 
-これらの理由から、RepositoryのReadmeを表示するときはJovial SVGを使用することにいたしました。完璧ではないですが、Flutter_svgよりはBetterな結果になります。
+これらの理由から、Repository の Readme を表示するときは Jovial SVG を使用することにいたしました。完璧ではないですが、Flutter_svg よりは Better な結果になります。
 
 flutter_svg:
 
@@ -113,6 +120,12 @@ jovial_svg:
 ## Lint Rules
 
 [Very Good Ventures](https://verygood.ventures/)の very_good_analysis を使用して Lint Rule を設定しています。
+
+## その他
+
+[Authentication について](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api)
+
+ローカル環境ですぐにアプリを起動できるよう、GitHub REST API に Access token を使用していません。使用する場合は、[envied](https://pub.dev/packages/envied)などのパッケージを利用して token を管理してください。
 
 ## Credits
 
@@ -150,7 +163,21 @@ jovial_svg:
 
 アピールする点があれば、README に箇条書きなどで記載してください。
 
+- Share plus を使ったシェア機能
+- Url Launcher を使ってユーザーやユーザーの Repository に飛ぶことができる
+- GitHub アプリのデザインに寄せました
+- Splash Screen
+- Canva で作ったオリジナルのアイコンを Launcher icon として使用
+- Readme の表示
+- Detail Screen の Readme は riverpod を使って timer based caching を実装
+- Debouncing の実装
+
 ## 参考記事
+
+- https://codewithandrea.com/articles/flutter-riverpod-data-caching-providers-lifecycle/#caching-with-timeout
+- https://github.com/rrousselGit/riverpod/tree/master/examples/marvel
+- https://codewithandrea.com/articles/flutter-riverpod-pagination/
+- https://qiita.com/kasa_le/items/a33a607b8e6f1636be81
 
 評価ポイントについて詳しくまとめた記事がありますので、ぜひご覧ください。
 
