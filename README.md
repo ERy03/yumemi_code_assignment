@@ -62,7 +62,9 @@
 - [json_annotation: ^4.9.0](https://pub.dev/packages/json_annotation)
 - [mocktail: ^1.0.4](https://pub.dev/packages/mocktail)
 - [riverpod_annotation: ^2.3.5](https://pub.dev/packages/riverpod_annotation)
+- [share_plus: ^10.0.2](https://pub.dev/packages/share_plus)
 - [shared_preferences: ^2.3.2](https://pub.dev/packages/shared_preferences)
+- [url_launcher: ^6.3.0](https://pub.dev/packages/url_launcher)
 - [very_good_analysis: ^6.0.0](https://pub.dev/packages/very_good_analysis)
 
 ## コード生成
