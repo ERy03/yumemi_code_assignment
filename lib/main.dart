@@ -10,18 +10,18 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   runApp(
-    EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ja'),
+    ProviderScope(
+      overrides: [
+        // ここでUnimplementedErrorを実際のSharedPreferencesのインスタンスと上書きする
+        sharedPreferencesProvider.overrideWith((ref) => prefs),
       ],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      child: ProviderScope(
-        overrides: [
-          // ここでUnimplementedErrorを実際のSharedPreferencesのインスタンスと上書きする
-          sharedPreferencesProvider.overrideWithValue(prefs),
+      child: EasyLocalization(
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ja'),
         ],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
         child: const MyApp(),
       ),
     ),
@@ -33,7 +33,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeModeState = ref.watch(themeModeProvider);
+    final themeModeState = ref.watch(themeModeNotifierProvider);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

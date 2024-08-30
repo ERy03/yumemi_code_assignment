@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_code_assignment/data/github_repositories_repository.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_search_text_notifier.dart';
 import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/custom_appbar.dart';
 import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/custom_search_bar.dart';
 import 'package:yumemi_code_assignment/presentation/components/repositories_search_screen/find_prompt.dart';
@@ -21,8 +22,8 @@ class RepositoriesSearchScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final query = ref.watch(gitHubRepositorySearchTextStateProvider);
-    final themeModeState = ref.watch(themeModeProvider);
+    final query = ref.watch(githubRepositorySearchTextNotifierProvider);
+    final themeModeState = ref.watch(themeModeNotifierProvider);
     final gitHubRepositoryTotalCount =
         ref.watch(gitHubRepositoryTotalCountProvider(query));
 
@@ -31,8 +32,8 @@ class RepositoriesSearchScreen extends ConsumerWidget {
       appBar: CustomAppBar(
         themeModeProvider: themeModeState,
         context: context,
-        toggle: (bool val) {
-          ref.read(themeModeProvider.notifier).update((state) => val);
+        toggle: (_) {
+          ref.read(themeModeNotifierProvider.notifier).toggle();
         },
       ),
       body: Column(
