@@ -48,9 +48,6 @@ void main() async {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            gitHubRepositorySearchTextStateProvider.overrideWith((ref) {
-              return '';
-            }),
             sharedPreferencesProvider.overrideWith((ref) => pref),
           ],
           child: const MaterialApp(home: RepositoriesSearchScreen()),
