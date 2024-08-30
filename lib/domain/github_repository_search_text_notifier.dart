@@ -10,6 +10,7 @@ class GithubRepositorySearchTextNotifier
     return '';
   }
 
+  // ignore: use_setters_to_change_properties
   void setQuery(String query) {
     state = query;
   }
