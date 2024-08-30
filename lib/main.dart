@@ -33,7 +33,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeModeState = ref.watch(isDarkModeProvider);
+    final themeModeState = ref.watch(themeModeNotifierProvider);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

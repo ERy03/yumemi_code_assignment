@@ -11,7 +11,7 @@ SharedPreferences sharedPreferences(SharedPreferencesRef ref) {
 }
 
 @Riverpod(keepAlive: true)
-class IsDarkMode extends _$IsDarkMode {
+class ThemeModeNotifier extends _$ThemeModeNotifier {
   @override
   bool build() {
     final preferences = ref.watch(sharedPreferencesProvider);

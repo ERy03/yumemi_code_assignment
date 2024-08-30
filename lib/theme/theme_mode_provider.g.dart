@@ -21,19 +21,21 @@ final sharedPreferencesProvider = Provider<SharedPreferences>.internal(
 );
 
 typedef SharedPreferencesRef = ProviderRef<SharedPreferences>;
-String _$isDarkModeHash() => r'acba634e98fb92b05302a1fbef9a1a086286922a';
+String _$themeModeNotifierHash() => r'54f52a76c44c3e5f999c8e4ddd127e64cf932bd4';
 
-/// See also [IsDarkMode].
-@ProviderFor(IsDarkMode)
-final isDarkModeProvider = NotifierProvider<IsDarkMode, bool>.internal(
-  IsDarkMode.new,
-  name: r'isDarkModeProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$isDarkModeHash,
+/// See also [ThemeModeNotifier].
+@ProviderFor(ThemeModeNotifier)
+final themeModeNotifierProvider =
+    NotifierProvider<ThemeModeNotifier, bool>.internal(
+  ThemeModeNotifier.new,
+  name: r'themeModeNotifierProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$themeModeNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$IsDarkMode = Notifier<bool>;
+typedef _$ThemeModeNotifier = Notifier<bool>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

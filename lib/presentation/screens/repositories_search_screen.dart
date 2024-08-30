@@ -21,8 +21,8 @@ class RepositoriesSearchScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final query = ref.watch(gitHubRepositorySearchTextStateProvider);
-    final themeModeState = ref.watch(isDarkModeProvider);
+    final query = "";
+    final themeModeState = ref.watch(themeModeNotifierProvider);
     final gitHubRepositoryTotalCount =
         ref.watch(gitHubRepositoryTotalCountProvider(query));
 
@@ -32,7 +32,7 @@ class RepositoriesSearchScreen extends ConsumerWidget {
         themeModeProvider: themeModeState,
         context: context,
         toggle: (_) {
-          ref.read(isDarkModeProvider.notifier).toggle();
+          ref.read(themeModeNotifierProvider.notifier).toggle();
         },
       ),
       body: Column(
