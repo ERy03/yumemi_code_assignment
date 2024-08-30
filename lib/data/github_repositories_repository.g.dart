@@ -177,7 +177,7 @@ class _GitHubRepositoryTotalCountProviderElement
 }
 
 String _$searchRepositoriesHash() =>
-    r'6e4763cfdefbf2b30293b76b3a82376f68fa1ae5';
+    r'7ecaa2227bf439e4d346b6165a039a16b4022786';
 
 /// See also [searchRepositories].
 @ProviderFor(searchRepositories)
@@ -192,11 +192,9 @@ class SearchRepositoriesFamily
   /// See also [searchRepositories].
   SearchRepositoriesProvider call({
     required ({int page, String query}) queryData,
-    Duration debounceDuration = const Duration(milliseconds: 500),
   }) {
     return SearchRepositoriesProvider(
       queryData: queryData,
-      debounceDuration: debounceDuration,
     );
   }
 
@@ -206,7 +204,6 @@ class SearchRepositoriesFamily
   ) {
     return call(
       queryData: provider.queryData,
-      debounceDuration: provider.debounceDuration,
     );
   }
 
@@ -231,12 +228,10 @@ class SearchRepositoriesProvider
   /// See also [searchRepositories].
   SearchRepositoriesProvider({
     required ({int page, String query}) queryData,
-    Duration debounceDuration = const Duration(milliseconds: 500),
   }) : this._internal(
           (ref) => searchRepositories(
             ref as SearchRepositoriesRef,
             queryData: queryData,
-            debounceDuration: debounceDuration,
           ),
           from: searchRepositoriesProvider,
           name: r'searchRepositoriesProvider',
@@ -248,7 +243,6 @@ class SearchRepositoriesProvider
           allTransitiveDependencies:
               SearchRepositoriesFamily._allTransitiveDependencies,
           queryData: queryData,
-          debounceDuration: debounceDuration,
         );
 
   SearchRepositoriesProvider._internal(
@@ -259,11 +253,9 @@ class SearchRepositoriesProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.queryData,
-    required this.debounceDuration,
   }) : super.internal();
 
   final ({int page, String query}) queryData;
-  final Duration debounceDuration;
 
   @override
   Override overrideWith(
@@ -280,7 +272,6 @@ class SearchRepositoriesProvider
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         queryData: queryData,
-        debounceDuration: debounceDuration,
       ),
     );
   }
@@ -292,16 +283,13 @@ class SearchRepositoriesProvider
 
   @override
   bool operator ==(Object other) {
-    return other is SearchRepositoriesProvider &&
-        other.queryData == queryData &&
-        other.debounceDuration == debounceDuration;
+    return other is SearchRepositoriesProvider && other.queryData == queryData;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, queryData.hashCode);
-    hash = _SystemHash.combine(hash, debounceDuration.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -311,9 +299,6 @@ mixin SearchRepositoriesRef
     on AutoDisposeFutureProviderRef<GitHubRepositoryResponse> {
   /// The parameter `queryData` of this provider.
   ({int page, String query}) get queryData;
-
-  /// The parameter `debounceDuration` of this provider.
-  Duration get debounceDuration;
 }
 
 class _SearchRepositoriesProviderElement
@@ -324,9 +309,6 @@ class _SearchRepositoriesProviderElement
   @override
   ({int page, String query}) get queryData =>
       (origin as SearchRepositoriesProvider).queryData;
-  @override
-  Duration get debounceDuration =>
-      (origin as SearchRepositoriesProvider).debounceDuration;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
