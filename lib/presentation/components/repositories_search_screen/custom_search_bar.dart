@@ -1,11 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yumemi_code_assignment/domain/github_repository_search_text_notifier.dart';
 import 'package:yumemi_code_assignment/generated/locale_keys.g.dart';
-
-final gitHubRepositorySearchTextStateProvider = StateProvider<String>((ref) {
-  return '';
-});
 
 class CustomSearchBar extends ConsumerStatefulWidget {
   const CustomSearchBar({super.key});
@@ -43,8 +40,8 @@ class _CustomSearchBarState extends ConsumerState<CustomSearchBar> {
           leading: const Icon(Icons.search),
           hintText: LocaleKeys.searchRepository.tr(),
           onChanged: (text) => ref
-              .read(gitHubRepositorySearchTextStateProvider.notifier)
-              .state = text,
+              .read(githubRepositorySearchTextNotifierProvider.notifier)
+              .setQuery(text),
         ),
       ),
     );

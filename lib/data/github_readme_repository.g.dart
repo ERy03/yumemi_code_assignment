@@ -25,7 +25,7 @@ final gitHubReadmeRepositoryProvider =
 typedef GitHubReadmeRepositoryRef
     = AutoDisposeProviderRef<GithubReadmeRepository>;
 String _$getRepositoryReadmeHash() =>
-    r'00b3836b9e6f59602cb5ad65c3d15e7827de368e';
+    r'3725ab5fb960abddd6b74467b81df368be1c4443';
 
 /// Copied from Dart SDK
 class _SystemHash {
