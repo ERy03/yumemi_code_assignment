@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:mocktail/mocktail.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yumemi_code_assignment/data/github_repositories_repository.dart';
 import 'package:yumemi_code_assignment/domain/github_repository_model.dart';
 import 'package:yumemi_code_assignment/domain/github_repository_response.dart';
@@ -21,7 +22,7 @@ import 'package:yumemi_code_assignment/theme/theme_mode_provider.dart';
 
 import '../../dio_mock.dart';
 
-void main() {
+void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   DioException dioException(int statusCode) {
@@ -34,6 +35,12 @@ void main() {
     );
   }
 
+  SharedPreferences.setMockInitialValues({
+    'darkMode': false,
+  });
+
+  final pref = await SharedPreferences.getInstance();
+
   testWidgets(
       'RepositoriesSearchScreen shows search bar and FindPrompt when query is empty',
       (WidgetTester tester) async {
@@ -44,9 +51,7 @@ void main() {
             gitHubRepositorySearchTextStateProvider.overrideWith((ref) {
               return '';
             }),
-            themeModeProvider.overrideWith((ref) {
-              return true;
-            }),
+            sharedPreferencesProvider.overrideWith((ref) => pref),
           ],
           child: const MaterialApp(home: RepositoriesSearchScreen()),
         ),
@@ -75,9 +80,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -108,9 +111,7 @@ void main() {
                 .overrideWith((ref) {
               return const GitHubRepositoryResponse(totalCount: 0, items: []);
             }),
-            themeModeProvider.overrideWith((ref) {
-              return true;
-            }),
+            sharedPreferencesProvider.overrideWith((ref) => pref),
           ],
           child: const MaterialApp(home: RepositoriesSearchScreen()),
         ),
@@ -140,9 +141,7 @@ void main() {
           gitHubRepositoriesRepositoryProvider.overrideWith((ref) {
             throw Exception();
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -171,9 +170,7 @@ void main() {
           gitHubRepositoriesRepositoryProvider.overrideWith((ref) {
             throw dioException(403);
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -202,9 +199,7 @@ void main() {
           gitHubRepositoriesRepositoryProvider.overrideWith((ref) {
             throw dioException(404);
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -233,9 +228,7 @@ void main() {
           gitHubRepositoriesRepositoryProvider.overrideWith((ref) {
             throw dioException(503);
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -270,9 +263,7 @@ void main() {
               ),
             );
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
@@ -350,9 +341,7 @@ void main() {
           gitHubRepositoriesRepositoryProvider.overrideWith((ref) {
             return repository;
           }),
-          themeModeProvider.overrideWith((ref) {
-            return true;
-          }),
+          sharedPreferencesProvider.overrideWith((ref) => pref),
         ],
         child: const MaterialApp(home: RepositoriesSearchScreen()),
       ),
